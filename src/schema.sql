@@ -47,7 +47,7 @@ CREATE TABLE Good (
 );
 
 
-CREATE TABLE TextValues ​​(
+CREATE TABLE TextValues (
   good_id INT  NOT NULL,
   field_id INT NOT NULL,
   fValue TEXT,
@@ -55,7 +55,7 @@ CREATE TABLE TextValues ​​(
 );
 
 
-CREATE TABLE NumberValues ​​(
+CREATE TABLE NumberValues (
   good_id INT NOT NULL,
   field_id INT NOT NULL,
   fValue INT NOT NULL,
