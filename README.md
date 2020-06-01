@@ -23,7 +23,9 @@ The structure of the demo data that we will store:
 
 ![The structure of the demo data](https://community.intersystems.com/sites/default/files/inline/images/images/data_structure1.png)
 
-SQL schema for this structure [schema.sql](src/schema.sql).
+Global for this structure created in beginning [schema.py](src/schema.py).
+
+SQL schema [schema.sql](src/schema.sql).
 
 ## Original tools inside my project
 
