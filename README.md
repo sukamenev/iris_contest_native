@@ -79,11 +79,12 @@ After the 1st time running the next ones will perform better and take few second
 
 # Usage
 
-After starting containers open another terminal and type commands
+After starting containers open another terminal (under *root* user) and type commands:
 
 ```
 # Go in IRIS container
 docker exec -it iris_native_iris_1 bash
+# inside container
 cd /app
 python3 scheme.py
 ```
