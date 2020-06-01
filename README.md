@@ -1,1 +1,72 @@
-# iris_contest_native
+# Comparison IRIS native globals and EAV-approach in relational db (MySQL)
+## About EAV-model
+The EAV-model is designed to store hierarchical and sparse structures in relational databases.
+
+The EAV-approach is widespread among programmers, but with the advent of IRIS Native API, is it worth using it further?
+
+My articles on this subject:
+[Entity-attribute-value model in relational databases. Should globals be emulated on tables? Part 1.](https://community.intersystems.com/post/entity-attribute-value-model-relational-databases-should-globals-be-emulated-tables-part-1)
+[Entity-attribute-value model in relational databases. Should globals be emulated on tables? Part 2.](https://community.intersystems.com/post/entity-attribute-value-model-relational-databases-should-globals-be-emulated-tables-part-2)
+
+[About EAV-model (Wikipedia)](https://en.wikipedia.org/wiki/Entity%E2%80%93attribute%E2%80%93value_model)
+
+## Original tools inside my project
+
+I created a great library in Python [iglobal.py](blob/master/src/iglobal.py) that allows you to work with globals in an object-oriented way.
+
+```
+node = good.node('index1', 'index2')
+
+node.set(5)
+node.inc(2)
+
+print(node.get())
+
+good.kill()
+```
+
+You may initialize whole tree with one operation:
+
+```
+good = iGlobal('good')
+
+good.init(
+{'Storages':
+     { 'id' : 1,
+       'Properties':
+        {'capacity':
+           {'name': 'Capacity, GB',
+            'sort': 100,
+            'searchable': 1,
+            'table_view': 1
+           },
+         'weight':
+           {'name': 'Weight, kg',
+            'sort': 800,
+            'searchable': 1,
+            'table_view': 1
+           }
+       },
+      'SSD':
+        {'id' : 2,
+         'Properties':
+          {'endurance':
+            {'name': 'Endurance, TBW',
+             'sort': 200,
+             'searchable': 1,
+             'table_view': 1
+            }
+          },
+         'AIC PCI-E': {'id': 3},
+         'SATA':      {'id': 4},
+         'M.2':       {'id': 5}
+      }
+    }
+  }
+)
+```
+
+### Estimated container build time
+First time running ~2-15 minutes. Depending on the speed of your internet.
+After the 1st time running the next ones will perform better and take few seconds.
+
