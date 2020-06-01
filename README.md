@@ -86,5 +86,5 @@ After starting containers open another terminal (under *root* user) and type com
 docker exec -it iris_native_iris_1 bash
 # inside container
 cd /app
-python3 scheme.py
+python3 schema.py
 ```
