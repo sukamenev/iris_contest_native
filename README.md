@@ -32,7 +32,7 @@ SQL schema [schema.sql](src/schema.sql).
 
 ## Original tools inside my project
 
-I created a great library in Python [iglobal.py](src/iglobal.py) that allows you to work with globals in an object-oriented way.
+I created a usefull library in Python [iglobal.py](src/iglobal.py) that allows you to work with globals in an object-oriented way.
 
 ```
 node = good.node('index1', 'index2')
