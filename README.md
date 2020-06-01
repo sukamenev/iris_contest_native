@@ -1,4 +1,4 @@
-# Comparison IRIS native globals and EAV-approach in relational db (MySQL)
+# Comparison of IRIS Native Globals API and EAV-approach in relational db (MySQL)
 ## About EAV-model
 The EAV-model is designed to store hierarchical and sparse structures in relational databases.
 
