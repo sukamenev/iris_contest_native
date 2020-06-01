@@ -17,6 +17,14 @@ My articles on this subject:
 Make a comparison of the performance approaches on the numbers.
 I want to see how much time it takes to create thousands of products, as well as to access them using IRIS Native API and EAV (MySQL).
 
+## Data model in project
+
+The structure of the demo data that we will store:
+
+![The structure of the demo data](https://community.intersystems.com/sites/default/files/inline/images/images/data_structure1.png)
+
+SQL schema for this structure [schema.sql](src/schema.sql).
+
 ## Original tools inside my project
 
 I created a great library in Python [iglobal.py](src/iglobal.py) that allows you to work with globals in an object-oriented way.
@@ -26,6 +34,7 @@ node = good.node('index1', 'index2')
 
 node.set(5)
 node.inc(2)
+i = node.iterator()
 
 print(node.get())
 
