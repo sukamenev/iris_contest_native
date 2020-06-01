@@ -24,7 +24,7 @@ In the project, a data scheme is created the same as in real projects on IRIS gl
 
 Transactions are used in both approaches. Products are created in random sections of the catalog.
 
-When testing the loading of product properties, random products are loaded to make it harder to use caching techniques.
+When testing the loading of product properties, random products are loaded to make it harder to use caching database techniques.
 
 ## Data model in project
 
