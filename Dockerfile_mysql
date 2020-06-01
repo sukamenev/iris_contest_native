@@ -1,0 +1,16 @@
+FROM mysql:8.0
+
+#USER root
+
+RUN rm -f /app
+RUN rm -f /sheme.sql
+#RUN mkdir /app
+#COPY ./src/sheme.sql /
+
+ADD ./src/schema.sql /docker-entrypoint-initdb.d
+
+#RUN sh -c 'mysql --user=user --password=password --port=3306 --host=127.0.0.1 db < /sheme.sql'
+
+# bringing the standard shell back
+#SHELL ["/bin/bash", "-c"]
+

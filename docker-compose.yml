@@ -1,0 +1,55 @@
+version: '3.6'
+services:
+  iris:
+    image: store/intersystems/iris-community:2020.1.0.215.0
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    restart: always
+    ports:
+      - 80:80
+      - 51773:51773
+      - 52773:52773
+    links:
+      - mysql
+#    networks:
+#      - app-network
+    depends_on:
+      - mysql
+    volumes:
+       - ./src:/app
+
+  mysql:
+    image: mysql:8.0
+    build:
+      context: ./
+      dockerfile: ./Dockerfile_mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'db'
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: 'user'
+      # You can use whatever password you like
+      MYSQL_PASSWORD: 'password'
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - 3306:3306
+#    expose:
+      # Opens port 3306 on the container
+#      - '3306'
+      # Where our data will be persisted
+#    networks:
+#      - app-network     
+    volumes:
+       - ./src:/app
+#      - my-db:/var/lib/mysql
+# Names our volume
+#volumes:
+#  src: ./src
+
+#Docker Networks
+#networks:
+#  app-network:
+#    driver: bridge
