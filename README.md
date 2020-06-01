@@ -5,7 +5,7 @@ The EAV-model is designed to store hierarchical and sparse structures in relatio
 
 The EAV-approach is widespread among programmers, but with the advent of IRIS Native API, is it worth using it further?
 
-My articles on this subject:
+## My articles about EAV-model and IRIS globals
 
 [Entity-attribute-value model in relational databases. Should globals be emulated on tables? Part 1.](https://community.intersystems.com/post/entity-attribute-value-model-relational-databases-should-globals-be-emulated-tables-part-1)
 
