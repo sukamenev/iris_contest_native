@@ -108,7 +108,11 @@ docker-compose build
 docker-compose up -d
 ```
 
-## Run application
+## Run application in browser
+
+Goto (localhost:5000)[http://localhost:5000/]
+
+## Run application in command line
 
 After starting containers open another terminal (under *root* user) and type commands:
 ```
@@ -121,7 +125,7 @@ See IRIS container name (column NAMES)
 docker exec -it IRIS_CONTAINER_NAME bash
 # inside container
 cd /app
-python3 schema.py
+python3 cmd.py
 ```
 
 ## Stop containers
