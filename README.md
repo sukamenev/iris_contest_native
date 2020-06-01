@@ -20,6 +20,12 @@ The EAV-approach is widespread among programmers, but with the advent of IRIS Na
 Make a comparison of the performance approaches on the numbers.
 I want to see how much time it takes to create thousands of products, as well as to access them using IRIS Native API and EAV (MySQL).
 
+In the project, a data scheme is created the same as in real projects on IRIS globals and SQL for objective comparison.
+
+Transactions are used in both approaches. Products are created in random sections of the catalog.
+
+When testing the loading of product properties, random products are loaded to make it harder to use caching techniques.
+
 ## Data model in project
 
 The structure of the demo data that we will store:
