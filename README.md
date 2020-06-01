@@ -5,14 +5,16 @@ The EAV-model is designed to store hierarchical and sparse structures in relatio
 The EAV-approach is widespread among programmers, but with the advent of IRIS Native API, is it worth using it further?
 
 My articles on this subject:
+
 [Entity-attribute-value model in relational databases. Should globals be emulated on tables? Part 1.](https://community.intersystems.com/post/entity-attribute-value-model-relational-databases-should-globals-be-emulated-tables-part-1)
+
 [Entity-attribute-value model in relational databases. Should globals be emulated on tables? Part 2.](https://community.intersystems.com/post/entity-attribute-value-model-relational-databases-should-globals-be-emulated-tables-part-2)
 
 [About EAV-model (Wikipedia)](https://en.wikipedia.org/wiki/Entity%E2%80%93attribute%E2%80%93value_model)
 
 ## Original tools inside my project
 
-I created a great library in Python [iglobal.py](blob/master/src/iglobal.py) that allows you to work with globals in an object-oriented way.
+I created a great library in Python [iglobal.py](src/iglobal.py) that allows you to work with globals in an object-oriented way.
 
 ```
 node = good.node('index1', 'index2')
