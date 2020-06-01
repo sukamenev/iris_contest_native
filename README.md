@@ -108,9 +108,7 @@ After starting containers open another terminal (under *root* user) and type com
 ```
 docker ps
 ```
-
 See IRIS container name (column NAMES)
-
 
 ```
 # Go in IRIS container
@@ -118,4 +116,10 @@ docker exec -it IRIS_CONTAINER_NAME bash
 # inside container
 cd /app
 python3 schema.py
+```
+
+## Stop containers
+
+```
+docker-compose stop
 ```
