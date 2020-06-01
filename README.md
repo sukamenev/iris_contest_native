@@ -12,6 +12,11 @@ My articles on this subject:
 
 [About EAV-model (Wikipedia)](https://en.wikipedia.org/wiki/Entity%E2%80%93attribute%E2%80%93value_model)
 
+## Purpose of this project
+
+Make a comparison of the performance approaches on the numbers.
+I want to see how much time it takes to create thousands of products, as well as to access them using IRIS Native API and EAV (MySQL).
+
 ## Original tools inside my project
 
 I created a great library in Python [iglobal.py](src/iglobal.py) that allows you to work with globals in an object-oriented way.
@@ -68,7 +73,17 @@ good.init(
 )
 ```
 
-### Estimated container build time
+## Estimated container build time
 First time running ~2-15 minutes. Depending on the speed of your internet.
 After the 1st time running the next ones will perform better and take few seconds.
 
+# Usage
+
+After starting containers open another terminal and type commands
+
+```
+# Go in IRIS container
+docker exec -it iris_native_iris_1 bash
+cd /app
+python3 scheme.py
+```
