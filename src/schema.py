@@ -178,12 +178,13 @@ for x in range(nTest):
   id = x+1
   
   sSql = "INSERT INTO `Good` (`id`, `name`, `price`, `item_count`, `reserved_count`, `catalog_id`) VALUES (%s, %s, %s, %s, %s, %s)"
-  cursor.execute(sSql, (id, 'Name ' + str(id), randomNumber/100, randomNumber, randomNumber, randomNumber))
+  cursor.execute(sSql, (id, 'Name ' + str(id), randomNumber/100, randomNumber, randomNumber, nCatalog))
   
   sSql = "INSERT INTO `TextValues` (`good_id`, `field_id`, `fValue`) VALUES (%s, %s, %s)"
   cursor.execute(sSql, (id, 2, 'Text value ' + str(id)))
   
   aP = cacheProp[nCatalog]
+  
   for p in aP:
     sSql = "INSERT INTO `NumberValues` (`good_id`, `field_id`, `fValue`) VALUES (%s, %s, %s)"
     cursor.execute(sSql, (id, p, randomNumber))
@@ -193,5 +194,40 @@ for x in range(nTest):
 end = time.time()
 print('Total time {:.2f} sec'.format(end - start))
 print()
+
+start = time.time()
+print("IRIS native globals: access of {0} random goods".format(nTest))
+
+for x in range(nTest):
+  id = randint(1, nTest)
+  node = good.node(id)
+  oIter = node.iterator()
+  for subscript, value in oIter.items():
+    "subscript= {}, value={}".format(subscript, value)
+
+end = time.time()    
+print('Total time {:.2f} sec'.format(end - start))
+
+print()
+start = time.time()
+print("EAV (MySql backend): access of {0} random goods".format(nTest))
+
+for x in range(nTest):
+  id = randint(1, nTest)
+  
+  sSql = "SELECT * FROM `Good` WHERE `id`=%s"
+  cursor.execute(sSql, (id))
+  result = cursor.fetchone()
+  
+  sSql = "SELECT * FROM `NumberValues` WHERE `good_id`=%s"
+  cursor.execute(sSql, (id))
+  result = cursor.fetchall()
+  
+  sSql = "SELECT * FROM `TextValues` WHERE `good_id`=%s"
+  cursor.execute(sSql, (id))
+  result = cursor.fetchall()
+
+end = time.time()
+print('Total time {:.2f} sec'.format(end - start))
 
 db.close()        

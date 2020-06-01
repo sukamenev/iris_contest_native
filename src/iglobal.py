@@ -58,4 +58,8 @@ class iGlobal:
     
   def node(self, *ind):
     return iGlobal(self.name, *(self.indices + ind))
+  
+  def iterator(self):
+    i = getIris()
+    return i.iterator(self.name, *self.indices)
     
