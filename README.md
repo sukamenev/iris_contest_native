@@ -11,7 +11,9 @@ The EAV-approach is widespread among programmers, but with the advent of IRIS Na
 
 [Entity-attribute-value model in relational databases. Should globals be emulated on tables? Part 2.](https://community.intersystems.com/post/entity-attribute-value-model-relational-databases-should-globals-be-emulated-tables-part-2)
 
-[About EAV-model (Wikipedia)](https://en.wikipedia.org/wiki/Entity%E2%80%93attribute%E2%80%93value_model)
+### Wikipedia
+
+[About EAV-model](https://en.wikipedia.org/wiki/Entity%E2%80%93attribute%E2%80%93value_model)
 
 ## Purpose of this project
 
