@@ -1,0 +1,49 @@
+<title>Comparison IRIS Native API and EAV-approach (MySQL)</title>
+      <!--link rel="stylesheet" media="screen" href="static/bootstrap.min.css"-->
+      <!--link rel="stylesheet" href="static/bootstrap-theme.min.css"-->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<div class="container">
+<h1>Comparison IRIS Native API and EAV-approach (MySQL)</h1>
+<form action="" method="post" role="form">
+    {{form.csrf}}
+<div class="w-50 p-2">
+  <!--label for="count">Count of goods for testing :</label--> {{form.count.label}} {{form.count(class="form-control")}}
+  <!--input type="text" class="form-control" id="count" name="count" placeholder="1-20000"-->
+  
+  <p>&nbsp;</p>
+  {{form.test_select.label}}
+  {{form.test_select}}
+  <!--label for="test_select">Adding:</label>
+  <input type="radio" class="form-control" id="test_adding" name="test_select" value="adding" checked=true>
+  
+  <label for="test_select">Reading:</label>
+  <input type="radio" class="form-control" id="test_reading" name="test_select" value="reading"-->
+</div>
+<button type="submit" class="btn btn-success">Submit</button>
+</form>
+
+{% if form.count.errors %}
+        <div class="alert alert-warning">{% for error in form.count.errors %}<li><strong>Count</strong> - {{ error }}</li>{% endfor %}</div>
+{% endif %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+
+{% for message in messages %}
+{% if "Error" not in message[1]: %}
+<div class="alert alert-info">
+     <strong>{{ message[1] }}</strong></div>
+{% endif %}
+
+{% if "Error" in message[1]: %}
+<div class="alert alert-warning">
+  {{ message[1] }}
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+</div>
