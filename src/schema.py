@@ -108,7 +108,12 @@ index.init(
 # У нас есть список каталогов в которых мы создаём товары
 # Выбираем каталог и создаём в нём товар с нужным списком свойств
 aList = [4, 5, 6, 7, 8]
-nTest = 1000
+
+print()
+try:
+    nTest=int(input('Input count of goods (1000 is recommended value): '))
+except ValueError:
+    print("Not a number")
 
 print()
 start = time.time()
@@ -196,7 +201,7 @@ nTimeEAXCreate = end - start
 print('{:.2f} sec'.format(nTimeEAXCreate))
 print()
 
-print('=======  IRIS Native API adding {:.2f} times faster  ======='.format(nTimeEAXCreate / nTimeIrisCreate))
+print('=======  ADDING: IRIS Native API {:.2f} times faster  ======='.format(nTimeEAXCreate / nTimeIrisCreate))
 print()
 
 start = time.time()
@@ -236,7 +241,7 @@ nTimeEAXAccess = end - start
 print('{:.2f} sec'.format(nTimeEAXAccess))
 print()
 
-print('=======  IRIS Native API accessing {:.2f} times faster  ======='.format(nTimeEAXAccess / nTimeIrisAccess))
+print('=======  READING: IRIS Native API {:.2f} times faster  ======='.format(nTimeEAXAccess / nTimeIrisAccess))
 print()
 
 db.close()        
