@@ -108,11 +108,11 @@ index.init(
 # У нас есть список каталогов в которых мы создаём товары
 # Выбираем каталог и создаём в нём товар с нужным списком свойств
 aList = [4, 5, 6, 7, 8]
-nTest = 300
+nTest = 1000
 
 print()
 start = time.time()
-print("IRIS native globals: adding of {0} goods".format(nTest))
+print("IRIS native globals: adding of {0} goods - ".format(nTest), end='')
 
 
 good = iGlobal('good')
@@ -142,8 +142,8 @@ for x in range(nTest):
     iris.tCommit()
 
 end = time.time()
-print('Total time {:.2f} sec'.format(end - start))
-print()
+nTimeIrisCreate = end - start
+print('{:.2f} sec'.format(nTimeIrisCreate))
     
 # Теперь напишем процедуру, которая делает аналогичную встравку для MySql
 #import mysql.connector
@@ -162,7 +162,7 @@ cacheProp = {
   8: [1, 2, 3, 5, 6]
 }
 
-print("EAV (MySql backend): adding of {0} goods".format(nTest))
+print("EAV (MySql backend): adding of {0} goods - ".format(nTest), end='')
 
 db = pymysql.connect(config.MYSQL_HOST, config.MYSQL_USER, config.MYSQL_PASSWORD, config.MYSQL_DB)
 
@@ -192,11 +192,15 @@ for x in range(nTest):
   db.commit()
   
 end = time.time()
-print('Total time {:.2f} sec'.format(end - start))
+nTimeEAXCreate = end - start
+print('{:.2f} sec'.format(nTimeEAXCreate))
+print()
+
+print('=======  IRIS Native API adding {:.2f} times faster  ======='.format(nTimeEAXCreate / nTimeIrisCreate))
 print()
 
 start = time.time()
-print("IRIS native globals: access of {0} random goods".format(nTest))
+print("IRIS native globals: access of {0} random goods - ".format(nTest), end='')
 
 for x in range(nTest):
   id = randint(1, nTest)
@@ -205,12 +209,12 @@ for x in range(nTest):
   for subscript, value in oIter.items():
     "subscript= {}, value={}".format(subscript, value)
 
-end = time.time()    
-print('Total time {:.2f} sec'.format(end - start))
+end = time.time()
+nTimeIrisAccess = end - start
+print('{:.2f} sec'.format(nTimeIrisAccess))
 
-print()
 start = time.time()
-print("EAV (MySql backend): access of {0} random goods".format(nTest))
+print("EAV (MySql backend): access of {0} random goods - ".format(nTest), end='')
 
 for x in range(nTest):
   id = randint(1, nTest)
@@ -228,6 +232,11 @@ for x in range(nTest):
   result = cursor.fetchall()
 
 end = time.time()
-print('Total time {:.2f} sec'.format(end - start))
+nTimeEAXAccess = end - start
+print('{:.2f} sec'.format(nTimeEAXAccess))
+print()
+
+print('=======  IRIS Native API accessing {:.2f} times faster  ======='.format(nTimeEAXAccess / nTimeIrisAccess))
+print()
 
 db.close()        
