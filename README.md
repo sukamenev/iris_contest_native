@@ -92,12 +92,29 @@ First time running ~2-15 minutes. Depending on the speed of your internet.
 After the 1st time running the next ones will perform better and take few seconds.
 
 # Usage
+## Build containers
+```
+docker-compose build
+```
+
+## Run containers
+```
+docker-compose up -d
+```
+
+## Run application
 
 After starting containers open another terminal (under *root* user) and type commands:
+```
+docker ps
+```
+
+See IRIS container name (column NAMES)
+
 
 ```
 # Go in IRIS container
-docker exec -it iris_native_iris_1 bash
+docker exec -it IRIS_CONTAINER_NAME bash
 # inside container
 cd /app
 python3 schema.py
