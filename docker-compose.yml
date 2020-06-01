@@ -7,13 +7,12 @@ services:
       dockerfile: ./Dockerfile
     restart: always
     ports:
-      - 80:80
-      - 51773:51773
-      - 52773:52773
+      - 5000:5000
+      - 9091:51773
+      - 9092:52773
+      - 9093:53773
     links:
       - mysql
-#    networks:
-#      - app-network
     depends_on:
       - mysql
     volumes:
@@ -36,20 +35,5 @@ services:
     ports:
       # <Port exposed> : < MySQL Port running inside container>
       - 3306:3306
-#    expose:
-      # Opens port 3306 on the container
-#      - '3306'
-      # Where our data will be persisted
-#    networks:
-#      - app-network     
     volumes:
        - ./src:/app
-#      - my-db:/var/lib/mysql
-# Names our volume
-#volumes:
-#  src: ./src
-
-#Docker Networks
-#networks:
-#  app-network:
-#    driver: bridge

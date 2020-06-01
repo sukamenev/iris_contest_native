@@ -8,9 +8,9 @@ USER root
 
 # Install and Configure Apache+PHP+php_iris
 RUN apt update \
- && apt -y install python3 python3-pip python3-mysqldb mysql-client \
+ && apt -y install python3 python3-pip mysql-client \
  && pip3 install /app/nativeAPI/irisnative-1.0.0-cp34-abi3-linux_x86_64.whl \
- && pip3 install PyMySQL
+ && pip3 install PyMySQL flask wtforms
 
 #### Set up the irisowner account and load application
 USER irisowner
@@ -32,3 +32,6 @@ ENV PATH="/usr/irissys/bin/:${PATH}"
 # bringing the standard shell back
 SHELL ["/bin/bash", "-c"]
 
+USER root
+RUN echo "cd /app" > /startFlack.sh && echo "python3 app.py > /log.txt" >> /startFlack.sh && chmod +x /startFlack.sh
+CMD [ "-a", "/startFlack.sh" ]
