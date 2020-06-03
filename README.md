@@ -110,7 +110,7 @@ docker-compose up -d
 
 ## Run application in browser
 
-Goto [localhost:5000](http://localhost:5000/)
+Go to [localhost:5000](http://localhost:5000/)
 
 ## Run application in command line
 
