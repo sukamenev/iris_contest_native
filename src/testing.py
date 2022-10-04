@@ -184,7 +184,14 @@ def runEAXAddTest(nTest):
   global cacheProp
   "EAV (MySql backend): adding of {0} goods - ".format(nTest)
 
-  db = pymysql.connect(config.MYSQL_HOST, config.MYSQL_USER, config.MYSQL_PASSWORD, config.MYSQL_DB)
+#  db = pymysql.connect(config.MYSQL_HOST, config.MYSQL_USER, config.MYSQL_PASSWORD, config.MYSQL_DB)
+#  new version wants keywords
+  db = pymysql.connect(host = config.MYSQL_HOST,
+                       user=config.MYSQL_USER,
+                       password=config.MYSQL_PASSWORD,
+                       database=config.MYSQL_DB,
+                       charset='utf8mb4',
+                       cursorclass=pymysql.cursors.DictCursor)
   cursor = db.cursor()
 
   cursor.execute('DELETE FROM Good')
@@ -220,7 +227,14 @@ def runEAXAddTest(nTest):
 def runEAXReadTest(nTest):
   global cacheProp
   
-  db = pymysql.connect(config.MYSQL_HOST, config.MYSQL_USER, config.MYSQL_PASSWORD, config.MYSQL_DB)
+#  db = pymysql.connect(config.MYSQL_HOST, config.MYSQL_USER, config.MYSQL_PASSWORD, config.MYSQL_DB)
+#  new version wants keywords
+  db = pymysql.connect(host = config.MYSQL_HOST,
+                       user=config.MYSQL_USER,
+                       password=config.MYSQL_PASSWORD,
+                       database=config.MYSQL_DB,
+                       charset='utf8mb4',
+                       cursorclass=pymysql.cursors.DictCursor)
   cursor = db.cursor()
   
   start = time.time()
