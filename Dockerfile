@@ -11,7 +11,8 @@ USER root
 RUN apt update \
  && apt -y install python3 python3-pip mysql-client \
  && pip3 install /app/nativeAPI/irisnative-1.0.0-cp34-abi3-linux_x86_64.whl \
- && pip3 install PyMySQL flask wtforms
+ && pip3 install PyMySQL flask wtforms \
+ && pip3 install cryptography
 
 #### Set up the irisowner account and load application
 USER irisowner
