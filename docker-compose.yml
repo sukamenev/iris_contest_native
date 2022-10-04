@@ -1,14 +1,15 @@
 version: '3.6'
 services:
   iris:
-    image: store/intersystems/iris-community:2020.1.0.215.0
+#    image: store/intersystems/iris-community:2020.1.0.215.0
     build:
       context: ./
       dockerfile: ./Dockerfile
     restart: always
+    command: --check-caps false
     ports:
       - 5000:5000
-      - 9091:51773
+      - 9091:1972
       - 9092:52773
       - 9093:53773
     links:
