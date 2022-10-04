@@ -1,5 +1,6 @@
 ARG IMAGE=store/intersystems/iris-community:2020.1.0.215.0
 ARG IMAGE=store/intersystems/iris-community:2020.2.0.204.0
+ARG IMAGE=store/intersystems/iris-community
 FROM $IMAGE
 
 COPY --chown=irisowner ./src/ /app
