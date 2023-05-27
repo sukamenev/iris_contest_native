@@ -37,3 +37,4 @@ SHELL ["/bin/bash", "-c"]
 USER root
 RUN echo "cd /app" > /startFlack.sh && echo "python3 app.py > /log.txt" >> /startFlack.sh && chmod +x /startFlack.sh
 CMD [ "-a", "/startFlack.sh" ]
+USER irisowner
